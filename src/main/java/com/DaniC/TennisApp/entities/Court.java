@@ -14,8 +14,6 @@ public class Court {
     @EqualsAndHashCode.Include
     private int id;
 
-    @Column()
-    private int nrCourt; //numero campo
     @Enumerated(EnumType.STRING)
     private Status status;
 

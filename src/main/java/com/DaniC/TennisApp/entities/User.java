@@ -3,11 +3,14 @@ package com.DaniC.TennisApp.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Objects;
+
 @Entity @Getter @Setter @NoArgsConstructor @ToString @EqualsAndHashCode
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private int id;
 
     @Column(length = 30)
@@ -20,8 +23,16 @@ public class User {
     private String telephone;
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass () != o.getClass ()) return false;
+        User user = (User) o;
+        return id == user.id;
+    }
 
-
-
-
+    @Override
+    public int hashCode() {
+        return Objects.hash ( id );
+    }
 }
