@@ -14,14 +14,23 @@ public class Booking {
     @EqualsAndHashCode.Include
     private int id;
 
-    private LocalDateTime startBook;
-    private LocalDateTime endBook;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
     @ManyToOne
     @JoinColumn(name = "court_id")
     private Court court;
+
+    private LocalDateTime startBook;
+    private LocalDateTime endBook;
+
+    public Booking(User user, Court court, LocalDateTime startBook, LocalDateTime endBook) {
+        this.user = user;
+        this.court = court;
+        this.startBook = startBook;
+        this.endBook = endBook;
+    }
 
     @Override
     public boolean equals(Object o) {

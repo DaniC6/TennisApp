@@ -1,5 +1,6 @@
 package com.DaniC.TennisApp.entities;
 
+
 import com.DaniC.TennisApp.enums.Status;
 import jakarta.persistence.*;
 import lombok.*;
@@ -16,13 +17,21 @@ public class Court {
 
     @Column(length = 25, nullable = false)
     private String courtName;
+
+    @Column(nullable = false)
+    private String courtType;
+
     @Enumerated(EnumType.STRING)
     private Status status;
 
 
 
-    public Court(String courtName) {
+
+
+
+    public Court(String courtName, String courtType) {
         this.courtName = courtName;
+        this.courtType = courtType;
     }
 
     @Override
