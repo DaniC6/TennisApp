@@ -14,16 +14,15 @@ public class Court {
     @EqualsAndHashCode.Include
     private int id;
 
+    @Column(length = 25, nullable = false)
+    private String courtName;
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    @ManyToOne
-    @JoinColumn(name = "tennisclub_id", nullable = false)
-    private TennisClub tennisClub;
 
-    public Court(Status status, TennisClub tennisClub) {
-        this.status = status;
-        this.tennisClub = tennisClub;
+
+    public Court(String courtName) {
+        this.courtName = courtName;
     }
 
     @Override
