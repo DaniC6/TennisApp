@@ -23,7 +23,8 @@ public class UserController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("/update-auths/{userId}")
-    public ResponseEntity<?> updateAuths(@PathVariable @Min(1) int userId, @RequestBody @NotEmpty Set<String> authorities){
+    public ResponseEntity<?> updateAuths(@PathVariable @Min(1) int userId,
+                                         @RequestBody @NotEmpty Set<String> authorities){
         return userService.updateAuthorities(userId, authorities);
     }
 

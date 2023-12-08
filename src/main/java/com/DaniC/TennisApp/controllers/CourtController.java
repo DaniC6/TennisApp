@@ -23,7 +23,8 @@ public class CourtController {
 
     @PreAuthorize ( "hasRole('ROLE_ADMIN')" )
     @PutMapping ("/updt-court/{id}")
-    public ResponseEntity<?> putCourt(@PathVariable int id, @RequestBody CourtRequest courtRequest){
+    public ResponseEntity<?> putCourt(@PathVariable int id,
+                                      @RequestBody CourtRequest courtRequest){
         return courtService.putCourt ( id,courtRequest );
     }
 
